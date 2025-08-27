@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+}
+
+.calculator-header {
+    background: #ff3b30;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.calculator-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.brand-stripe {
+    height: 4px;
+    background: white;
+    margin: 10px auto;
+    width: 80px;
+    border-radius: 2px;
+}
+
+.calculator {
+    padding: 20px;
+}
+
+.display {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 2px solid #e9ecef;
+}
+
+.previous-operand {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+    min-height: 20px;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #212529;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-number {
+    background: white;
+    color: #212529;
+    border: 2px solid #e9ecef;
+}
+
+.btn-number:hover {
+    background: #f8f9fa;
+    border-color: #ff3b30;
+}
+
+.btn-operation {
+    background: #ff3b30;
+    color: white;
+    border: 2px solid #ff3b30;
+}
+
+.btn-operation:hover {
+    background: #e02e24;
+    border-color: #e02e24;
+}
+
+.btn-clear {
+    background: #6c757d;
+    color: white;
+    border: 2px solid #6c757d;
+}
+
+.btn-clear:hover {
+    background: #5a6268;
+    border-color: #5a6268;
+}
+
+.btn-delete {
+    background: #fd7e14;
+    color: white;
+    border: 2px solid #fd7e14;
+}
+
+.btn-delete:hover {
+    background: #e66a00;
+    border-color: #e66a00;
+}
+
+.btn-equals {
+    background: #28a745;
+    color: white;
+    border: 2px solid #28a745;
+    grid-column: span 2;
+}
+
+.btn-equals:hover {
+    background: #218838;
+    border-color: #218838;
+}
+
+.calculator-footer {
+    background: #ff3b30;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .calculator-container {
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    .calculator-title {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+    
+    .current-operand {
+        font-size: 2rem;
+    }
+}
+
+/* Animation for button clicks */
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn:active {
+    animation: buttonPress 0.1s ease;
+}
+
+/* Focus styles for accessibility */
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.3);
+}
+
+/* Loading animation for calculations */
+@keyframes calculate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.calculating {
+    animation: calculate 0.5s ease infinite;
+}
